@@ -8,11 +8,11 @@ import zipfile
 def evaluate_model(model):
   # Evaluate the model
   # Load test dataset
-  if not os.path.exists('data'):
-    with zipfile.ZipFile('data.zip', 'r') as zip_ref:
-      zip_ref.extractall('data')
+  if not os.path.exists('dataset'):
+    with zipfile.ZipFile('dataset.zip', 'r') as zip_ref:
+      zip_ref.extractall('dataset')
 
-  dataset_dir = 'data'
+  dataset_dir = 'dataset'
   transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Grayscale(num_output_channels=1),
