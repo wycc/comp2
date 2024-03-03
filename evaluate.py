@@ -12,7 +12,7 @@ def evaluate_model(model):
     with zipfile.ZipFile('dataset.zip', 'r') as zip_ref:
       zip_ref.extractall('dataset')
 
-  dataset_dir = 'dataset'
+  dataset_dir = 'dataset/dataset'
   transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Grayscale(num_output_channels=1),
