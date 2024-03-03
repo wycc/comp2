@@ -2,12 +2,17 @@ import torch
 import torchvision.transforms as transforms
 import json
 from torchvision import datasets
-import sys
+import sys,os
+import zipfile
 
 def evaluate_model(model):
   # Evaluate the model
   # Load test dataset
-  dataset_dir = 'dataset'
+  if not os.path.exists('data'):
+    with zipfile.ZipFile('data.zip', 'r') as zip_ref:
+      zip_ref.extractall('data')
+
+  dataset_dir = 'data'
   transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Grayscale(num_output_channels=1),
